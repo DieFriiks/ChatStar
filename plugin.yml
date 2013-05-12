@@ -1,0 +1,4 @@
+name: ObviousRecipes
+version: 0.3
+main: tmas.ObviousRecipes.ObviousRecipes
+authors: [tmas]
