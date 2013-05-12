@@ -1,0 +1,55 @@
+package tmas.ObviousRecipes;
+
+import java.util.logging.Logger;
+import org.bukkit.Material;
+import org.bukkit.Server;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.plugin.PluginDescriptionFile;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class ObviousRecipes extends JavaPlugin
+{
+  private PluginDescriptionFile info;
+  private PluginManager manager;
+
+  public void onDisable()
+  {
+  }
+
+  public void onEnable()
+  {
+    Logger log = Logger.getLogger("Minecraft");
+    try {
+      ShapedRecipe string = new ShapedRecipe(new ItemStack(287, 4));
+      string.shape(new String[] { "#", "#" });
+      string.setIngredient('#', Material.WOOL);
+      getServer().addRecipe(string);
+    } catch (Exception e) {
+      log.warning("Failed loading ObviousRecipes:");
+      log.warning(e.toString());
+    }
+    try {
+      ShapedRecipe grass = new ShapedRecipe(new ItemStack(2, 1));
+      grass.shape(new String[] { "#", "X" });
+      grass.setIngredient('#', Material.SEEDS);
+      grass.setIngredient('X', Material.DIRT);
+      getServer().addRecipe(grass);
+    } catch (Exception e) {
+      log.warning("Failed loading ObviousRecipes:");
+      log.warning(e.toString());
+    }
+    try {
+      ShapedRecipe mossy = new ShapedRecipe(new ItemStack(48, 1));
+      mossy.shape(new String[] { "#", "X" });
+      mossy.setIngredient('#', Material.SEEDS);
+      mossy.setIngredient('X', Material.COBBLESTONE);
+      getServer().addRecipe(mossy);
+    } catch (Exception e) {
+      log.warning("Failed loading ObviousRecipes:");
+      log.warning(e.toString());
+    }
+    log.info("ObviousRecipes v0.3 Enabled");
+  }
+}
